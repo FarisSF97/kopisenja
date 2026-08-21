@@ -490,6 +490,26 @@ h1, h2, h3 {
   color: rgba(245, 239, 230, 0.6);
 }
 
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.4rem;
+  color: rgba(245, 239, 230, 0.75);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.github-link:hover {
+  color: var(--caramel);
+}
+
+.github-link svg {
+  width: 15px;
+  height: 15px;
+}
+
 @media (min-width: 640px) {
   .info-grid {
     grid-template-columns: repeat(3, 1fr);
