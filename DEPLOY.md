@@ -107,7 +107,7 @@ sudo usermod -aG docker $USER
 
 ## Langkah 4 — Clone Repo di VPS
 
-Clone di direktori `/etc/var/www/`
+Clone di direktori `/var/www/`
 
 ## Langkah 5 — Buat File `.env` di VPS
 
