@@ -1,0 +1,52 @@
+<%- include('partials/header', { title: 'Cari Menu', active: 'search' }) %>
+
+  <section class="page-head">
+    <div class="container">
+      <h1>Cari Menu</h1>
+      <p class="section-sub">Temukan menu kesukaanmu dari koleksi kami.</p>
+      <form action="/search" method="get" class="search-bar" role="search">
+        <input type="text" name="q" value="<%= q %>" placeholder="Cari nama menu atau deskripsi..." aria-label="Cari menu">
+        <button type="submit" class="btn btn-primary">Cari</button>
+      </form>
+      <div class="chips" role="navigation" aria-label="Filter kategori">
+        <a href="/search?q=<%= encodeURIComponent(q) %>" class="chip <%= !category ? 'active' : '' %>">Semua</a>
+        <% categories.forEach(function (c) { %>
+          <a href="/search?q=<%= encodeURIComponent(q) %>&amp;category=<%= c %>" class="chip <%= category === c ? 'active' : '' %>"><%= c %></a>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="results-count">
+        <% if (q || category) { %>
+          Ditemukan <strong><%= results.length %></strong> menu<%= q ? ` untuk pencarian "${q}"` : '' %><%= category ? ` pada kategori ${category}` : '' %>.
+        <% } else { %>
+          Menampilkan semua <strong><%= results.length %></strong> menu.
+        <% } %>
+      </p>
+
+      <% if (results.length > 0) { %>
+        <div class="grid">
+          <% results.forEach(function (menu) { %>
+            <%- include('partials/card', { menu: menu }) %>
+          <% }) %>
+        </div>
+      <% } else { %>
+        <div class="empty-state">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            <line x1="8.5" y1="8.5" x2="13.5" y2="13.5"></line>
+            <line x1="13.5" y1="8.5" x2="8.5" y2="13.5"></line>
+          </svg>
+          <h3>Menu tidak ditemukan</h3>
+          <p>Coba kata kunci lain, atau lihat semua menu yang tersedia.</p>
+          <a href="/search" class="btn btn-primary">Lihat Semua Menu</a>
+        </div>
+      <% } %>
+    </div>
+  </section>
+
+<%- include('partials/footer') %>

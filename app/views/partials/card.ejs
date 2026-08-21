@@ -1,0 +1,15 @@
+<article class="card">
+  <div class="card-img">
+    <img src="<%= menu.image_url %>" alt="<%= menu.name %>" loading="lazy"
+         onerror="this.onerror=null;this.src='/img/placeholder.svg'">
+    <span class="badge"><%= menu.category %></span>
+  </div>
+  <div class="card-body">
+    <h3 class="card-title"><%= menu.name %></h3>
+    <p class="card-desc"><%= menu.description %></p>
+    <div class="card-footer">
+      <span class="price"><%= formatRupiah(menu.price) %></span>
+      <a href="<%= waLink(menu.name) %>" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Pesan</a>
+    </div>
+  </div>
+</article>

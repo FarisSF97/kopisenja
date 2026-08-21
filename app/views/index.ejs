@@ -1,0 +1,54 @@
+<%- include('partials/header', { title: 'Beranda', active: 'home' }) %>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <span class="hero-eyebrow">Kedai kopi &amp; ruang santai</span>
+      <h1 class="hero-title">Nikmati Secangkir <span>Kopi Senja</span> di Sore Harimu</h1>
+      <p class="hero-sub">Biji kopi pilihan yang disangrai sendiri, disajikan dengan hangat.
+        Cari menu favoritmu, pesan lewat WhatsApp, dan ambil di tempat tanpa antre.</p>
+      <div class="hero-actions">
+        <a href="/search" class="btn btn-primary">Jelajahi Menu</a>
+        <a href="<%= waLink('reservasi tempat') %>" class="btn btn-outline" target="_blank" rel="noopener">Booking via WhatsApp</a>
+      </div>
+      <form action="/search" method="get" class="search-bar" role="search">
+        <input type="text" name="q" placeholder="Cari menu... misal: latte, croissant, matcha" aria-label="Cari menu">
+        <button type="submit" class="btn btn-primary">Cari</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Menu Favorit</h2>
+          <p class="section-sub">Paling sering dipesan para pengunjung.</p>
+        </div>
+        <a href="/search" class="link-more">Lihat semua <%= totalMenus %> menu &rarr;</a>
+      </div>
+      <div class="grid">
+        <% featured.forEach(function (menu) { %>
+          <%- include('partials/card', { menu: menu }) %>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <section class="section info-section">
+    <div class="container info-grid">
+      <div class="info-item">
+        <h3>Buka Setiap Hari</h3>
+        <p>Senin - Minggu, pukul 08.00 - 22.00 WIB. Last order 21.30.</p>
+      </div>
+      <div class="info-item">
+        <h3>Ruang Nyaman</h3>
+        <p>Wifi kencang, colokan di setiap meja, cocok untuk kerja dan nongkrong.</p>
+      </div>
+      <div class="info-item">
+        <h3>Pesan Tanpa Antre</h3>
+        <p>Pilih menu di website, kirim via WhatsApp, tinggal ambil di kasir.</p>
+      </div>
+    </div>
+  </section>
+
+<%- include('partials/footer') %>

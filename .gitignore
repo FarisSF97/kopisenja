@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+node_modules/
+PLANS.md
+PROGRESS.md
+21-8-26.txt
