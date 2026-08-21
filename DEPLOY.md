@@ -11,7 +11,7 @@ MySQL + Docker) ke VPS Ubuntu dengan nginx reverse proxy dan SSL certbot.
                                   ▼
 ┌──────────────────── VPS Ubuntu (43.173.30.77) ────────────────────┐
 │             nginx (host) :443 ──SSL──► :80 redirect               │
-│               proxy_pass http://127.0.0.1:3000                    │
+│               proxy_pass http://127.0.0.1:3001                    │
 │                                ▼                                  │
 │         ┌──────────────┐   coffee-net  ┌──────────────┐           │
 │         │ coffee-app   │◄─────────────►│ coffee-db    │           │
@@ -107,6 +107,8 @@ sudo usermod -aG docker $USER
 
 ## Langkah 4 — Clone Repo di VPS
 
+Clone di direktori `/etc/var/www/`
+
 ## Langkah 5 — Buat File `.env` di VPS
 
 ```bash
@@ -133,7 +135,7 @@ WA_NUMBER=<sesuaikan dengan nomor whatsapp>
 ```bash
 docker compose up -d --build
 docker compose ps
-curl -I http://127.0.0.1:3000
+curl -I http://127.0.0.1:3001
 ```
 
 ## Langkah 7 — Pasang Config Nginx

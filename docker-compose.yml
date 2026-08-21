@@ -4,7 +4,7 @@ services:
     container_name: coffee-app
     restart: unless-stopped
     ports:
-      - "127.0.0.1:3000:3000"
+      - "127.0.0.1:3001:3000"
     environment:
       PORT: 3000
       DB_HOST: db
